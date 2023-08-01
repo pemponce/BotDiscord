@@ -1,0 +1,6 @@
+events\EventListener.class
+artem\BotApl.class
+events\MessageListener.class
+events\MessageCreateListener.class
+events\MessageUpdateListener.class
+artem\BotConfiguration.class
