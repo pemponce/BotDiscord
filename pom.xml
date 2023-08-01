@@ -16,6 +16,7 @@
 
     <properties>
         <reactor-core.version>3.4.10</reactor-core.version>
+        <discord4j-core.version>3.3.0-M2</discord4j-core.version>
         <!-- Можно удалить discord4j-core.version, так как оно будет унаследовано из BOM -->
     </properties>
 
@@ -38,13 +39,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- ... Другие зависимости ... -->
-
         <!-- Зависимость discord4j-core -->
         <dependency>
             <groupId>com.discord4j</groupId>
             <artifactId>discord4j-core</artifactId>
-            <version>3.2.3</version>
+            <version>${discord4j-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
