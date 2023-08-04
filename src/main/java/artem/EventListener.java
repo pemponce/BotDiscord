@@ -1,4 +1,4 @@
-package events;
+package artem;
 
 import discord4j.core.event.domain.Event;
 import org.slf4j.Logger;

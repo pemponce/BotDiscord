@@ -1,4 +1,4 @@
-package events;
+package artem;
 
 import discord4j.core.event.domain.message.MessageUpdateEvent;
 import org.springframework.stereotype.Service;
