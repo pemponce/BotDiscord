@@ -58,6 +58,12 @@
             <version>2.5.5</version> <!-- Укажите актуальную версию Spring Boot -->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
