@@ -1,6 +1,6 @@
-C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\events\EventListener.java
-C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\artem\BotApl.java
-C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\events\MessageCreateListener.java
-C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\artem\BotConfiguration.java
-C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\events\MessageListener.java
-C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\events\MessageUpdateListener.java
+C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\com\artem\events\MessageCreateListener.java
+C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\com\artem\BotConfiguration.java
+C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\com\artem\events\MessageUpdateListener.java
+C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\com\artem\events\MessageListener.java
+C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\com\artem\BotApl.java
+C:\Users\azhel\IdeaProjects\Habr tasks\BotDiscord\src\main\java\com\artem\events\EventListener.java

@@ -7,60 +7,70 @@
     <artifactId>BotDiscord</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- Указываем родительский POM с BOM Spring Boot -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://mvnrepository.com/</url>
+        </repository>
+    </repositories>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.5</version> <!-- Укажите актуальную версию Spring Boot -->
+        <version>2.5.5</version>
     </parent>
 
     <properties>
         <reactor-core.version>3.4.10</reactor-core.version>
         <discord4j-core.version>3.3.0-M2</discord4j-core.version>
-        <!-- Можно удалить discord4j-core.version, так как оно будет унаследовано из BOM -->
     </properties>
 
     <dependencies>
-        <!-- Зависимости без явного указания версий -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-core</artifactId>
-            <version>3.4.3</version>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>5.0.0-beta.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- Зависимость discord4j-core -->
+
         <dependency>
             <groupId>com.discord4j</groupId>
             <artifactId>discord4j-core</artifactId>
             <version>${discord4j-core.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.8.1</version> <!-- Укажите актуальную версию JUnit Jupiter -->
+            <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>2.5.5</version> <!-- Укажите актуальную версию Spring Boot -->
+            <version>2.5.5</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
-        <!-- Оставляем плагин spring-boot-maven-plugin без изменений -->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
