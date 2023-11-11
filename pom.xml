@@ -39,6 +39,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.32.1</version> <!-- Укажите актуальную версию Google API Client -->
+        </dependency>
+        <dependency>
+            <groupId>com.google.oauth-client</groupId>
+            <artifactId>google-oauth-client-jetty</artifactId>
+            <version>1.32.1</version> <!-- Укажите актуальную версию Google OAuth Client -->
+        </dependency>
         <!-- Зависимость discord4j-core -->
         <dependency>
             <groupId>com.discord4j</groupId>
@@ -51,11 +61,31 @@
             <version>5.8.1</version> <!-- Укажите актуальную версию JUnit Jupiter -->
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-youtube -->
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-youtube</artifactId>
+            <version>v3-rev212-1.25.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>2.5.5</version> <!-- Укажите актуальную версию Spring Boot -->
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/dev.arbjerg/lavaplayer -->
+        <dependency>
+            <groupId>dev.arbjerg</groupId>
+            <artifactId>lavaplayer</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client-jackson2</artifactId>
+            <version>1.39.2</version> <!-- Укажите актуальную версию -->
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

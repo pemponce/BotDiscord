@@ -1,10 +1,14 @@
 package artem;
 
+import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
+import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
+import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import discord4j.core.DiscordClientBuilder;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.Event;
 import discord4j.core.object.entity.User;
 import discord4j.core.object.entity.channel.MessageChannel;
+import discord4j.core.object.entity.channel.VoiceChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,6 +55,13 @@ public class BotConfiguration {
         return client;
     }
 
+    @Bean
+    public AudioPlayerManager audioPlayerManager() {
+        AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
+        AudioSourceManagers.registerRemoteSources(playerManager);
+        return playerManager;
+    }
+
     @Bean(name = "!p")
     public Command todoCommand() {
         return (Optional<User> author, MessageChannel channel, String[] arguments) -> channel.createMessage("executed !todo command");
@@ -59,12 +70,14 @@ public class BotConfiguration {
     @Bean(name = "!s")
     public Command searchCommand() {
         return (Optional<User> author, MessageChannel channel, String[] arguments) -> {
+            if (arguments.length == 0) {
+                return channel.createMessage("Command usage: !s <text>");
+            }
 
-            if (arguments.length == 0) return channel.createMessage("Command usage: !s <text>");
+            String query = String.join(" ", arguments);
+            String videoUrl = YouTubeIntegration.searchVideo(query);
 
-                //TODO: search command realization
-
-            return channel.createMessage("Searching...");
+            return channel.createMessage("Video URL: " + videoUrl);
         };
     }
 }
