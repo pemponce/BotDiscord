@@ -1,14 +1,11 @@
 package artem;
 
-import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
-import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
-import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import discord4j.core.DiscordClientBuilder;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.Event;
 import discord4j.core.object.entity.User;
 import discord4j.core.object.entity.channel.MessageChannel;
-import discord4j.core.object.entity.channel.VoiceChannel;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,10 +16,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Configuration
+@RequiredArgsConstructor
 public class BotConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(BotConfiguration.class);
-
+    private final YouTubeIntegration youTubeIntegration;
     @Value("${token}")
     private String token;
 
@@ -55,12 +53,12 @@ public class BotConfiguration {
         return client;
     }
 
-    @Bean
-    public AudioPlayerManager audioPlayerManager() {
-        AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
-        AudioSourceManagers.registerRemoteSources(playerManager);
-        return playerManager;
-    }
+//    @Bean
+//    public AudioPlayerManager audioPlayerManager() {
+//        AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
+//        AudioSourceManagers.registerRemoteSources(playerManager);
+//        return playerManager;
+//    }
 
     @Bean(name = "!p")
     public Command todoCommand() {
@@ -75,7 +73,7 @@ public class BotConfiguration {
             }
 
             String query = String.join(" ", arguments);
-            String videoUrl = YouTubeIntegration.searchVideo(query);
+            String videoUrl = youTubeIntegration.searchVideo(query);
 
             return channel.createMessage("Video URL: " + videoUrl);
         };
