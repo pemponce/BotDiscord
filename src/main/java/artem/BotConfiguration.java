@@ -1,8 +1,12 @@
 package artem;
 
+import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
+import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
+import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import discord4j.core.DiscordClientBuilder;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.Event;
+import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
 import discord4j.core.object.entity.channel.MessageChannel;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,12 +58,12 @@ public class BotConfiguration {
         return client;
     }
 
-//    @Bean
-//    public AudioPlayerManager audioPlayerManager() {
-//        AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
-//        AudioSourceManagers.registerRemoteSources(playerManager);
-//        return playerManager;
-//    }
+    @Bean
+    public AudioPlayerManager audioPlayerManager() {
+        AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
+        AudioSourceManagers.registerRemoteSources(playerManager);
+        return playerManager;
+    }
 
     @Bean(name = "!p")
     public Command todoCommand() {
@@ -75,7 +80,18 @@ public class BotConfiguration {
             String query = String.join(" ", arguments);
             String videoUrl = youTubeIntegration.searchVideo(query);
 
+
             return channel.createMessage("Video URL: " + videoUrl);
+        };
+    }
+
+    @Bean(name = "!q")
+    public Command joinVoiceCommand() {
+        return (Optional<User> author, MessageChannel channel, String[] arguments) -> {
+
+
+
+            return channel.createMessage("asfwr");
         };
     }
 }
